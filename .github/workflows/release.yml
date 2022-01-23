@@ -2,9 +2,8 @@ name: goreleaser
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - '*'
 
 permissions:
   contents: write
@@ -33,4 +32,4 @@ jobs:
           args: -f .github/conf/.goreleaser.yml
           workdir: .
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GO_RELEASER_GITHUB_TOKEN }}
